@@ -10,7 +10,7 @@ services:
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
     volumes:
-      - /usr/local/flink/flink-docker/conf/job/flink-conf.yaml:/opt/flink/conf/flink-conf.yaml
+      - D:\BackEndProject\flink-learning\paper\job\flink-conf.yaml:/opt/flink/conf/flink-conf.yaml
     restart: always
 
   taskmanager:
@@ -26,5 +26,5 @@ services:
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
     volumes:
-      - /usr/local/flink/flink-docker/conf/task/flink-conf.yaml:/opt/flink/conf/flink-conf.yaml
+      - D:\BackEndProject\flink-learning\paper\task\flink-conf.yaml:/opt/flink/conf/flink-conf.yaml
     restart: always
