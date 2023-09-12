@@ -14,7 +14,7 @@ import java.util.Properties;
  */
 public class KafkaUtil {
     public static final String broker_list = "localhost:9092";
-    public static final String topic = "student";  //kafka topic 需要和 flink 程序用同一个 topic
+    public static final String topic = "test";  //kafka topic 需要和 flink 程序用同一个 topic
 
     public static void writeToKafka() throws InterruptedException {
         Properties props = new Properties();
@@ -23,7 +23,7 @@ public class KafkaUtil {
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         KafkaProducer producer = new KafkaProducer<String, String>(props);
 
-        for (int i = 1; i <= 100; i++) {
+        for (int i = 1; i <= 5; i++) {
             Student student = new Student(i, "zhisheng" + i, "password" + i, 18 + i);
             ProducerRecord record = new ProducerRecord<String, String>(topic, null, null, GsonUtil.toJson(student));
             producer.send(record);
