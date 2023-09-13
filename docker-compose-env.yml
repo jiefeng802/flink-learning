@@ -37,6 +37,15 @@ services:
       - zookeeper-test
     container_name: kafka-test
 
+  redis:
+    image: redis:7
+    container_name: redis
+    command: redis-server --appendonly yes
+    volumes:
+      - D:\BackEndProject\mall-swarm-master\document\docker\mydata\redis\data:/data #数据文件挂载
+    ports:
+      - 6379:6379
+
 volumes:
   zookeeper_vol: { }
   kafka_vol: { }
